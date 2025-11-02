@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projetos — Voluntariado</title>
+  <meta name="description" content="SPA educativa para gerenciamento de projetos e voluntariado — acessível e responsiva." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand" aria-hidden="false">
+        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="8" r="3" fill="currentColor"></circle>
+          <path d="M4 20c0-4 4-6 8-6s8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.2"></path>
+        </svg>
+        <div>
+          <h1 class="site-title">Projetos — Voluntariado</h1>
+          <p class="site-tagline">Conectando pessoas a causas</p>
+        </div>
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Menu principal">
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+        <ul class="menu" role="menubar">
+          <li role="none"><a role="menuitem" href="#home" data-page="home">Início</a></li>
+          <li role="none">
+            <a role="menuitem" href="#projetos" data-page="projetos" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+            <ul class="submenu" role="menu" aria-label="Submenu projetos">
+              <li role="none"><a role="menuitem" href="#projetos/educacao" data-page="projetos" data-filter="educacao">Educação</a></li>
+              <li role="none"><a role="menuitem" href="#projetos/saude" data-page="projetos" data-filter="saude">Saúde</a></li>
+              <li role="none"><a role="menuitem" href="#projetos/meioambiente" data-page="projetos" data-filter="meioambiente">Meio ambiente</a></li>
+            </ul>
+          </li>
+          <li role="none"><a role="menuitem" href="#voluntariado" data-page="voluntariado">Voluntariado</a></li>
+          <li role="none"><a role="menuitem" href="#doar" data-page="doar">Doar</a></li>
+          <li role="none"><a role="menuitem" href="#transparencia" data-page="transparencia">Transparência</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button id="themeToggle" aria-pressed="false" aria-label="Alternar modo escuro">🌓</button>
+          <button id="contrastToggle" aria-pressed="false" aria-label="Ativar alto contraste">⚪⚫</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <div class="container">
+      <div id="app" class="app-root" tabindex="-1" aria-live="polite">
+        <!-- Conteúdo injetado pela SPA (script.js) -->
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo" class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Projetos — Voluntariado • Desenvolvido para Experiência Prática 4</p>
+      <p><a href="https://github.com/Clei-Paula/experienciapraticas4" target="_blank" rel="noopener">Repositório</a></p>
+    </div>
+  </footer>
+
+  <!-- toast container -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* =======================================================
+   DESIGN SYSTEM (variáveis)
+======================================================= */
+:root{
+  --accent: #2a7f62;
+  --accent-2: #1f5e46;
+  --secondary: #4a90e2;
+  --bg: #ffffff;
+  --surface: #fbfbfb;
+  --muted: #6b6b6b;
+  --text: #111111;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  --focus-ring: 3px solid rgba(42,127,98,0.18);
+}
+
+
+:root[data-contrast="high"]{
+  --bg: #000000;
+  --surface: #000000;
+  --text: #ffffff;
+  --accent: #ffff00;
+  --accent-2: #ffffff;
+  --secondary: #00ffff;
+}
+
+/* Dark theme */
+:root[data-theme="dark"]{
+  --bg: #0f1112;
+  --surface: #121214;
+  --text: #f4f4f5;
+  --muted: #cfcfcf;
+}
+
+/* =======================================================
+   RESET & BASE
+======================================================= */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background .25s ease, color .25s ease;
+}
+.container{max-width:1100px;margin:0 auto;padding:var(--space-3)}
+
+
+.skip-link{
+  position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+.skip-link:focus{
+  left:1rem;top:1rem;width:auto;height:auto;padding:.5rem;background:#000;color:#fff;border-radius:6px;z-index:9999;
+}
+
+/* header */
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3)}
+.brand{display:flex;gap:12px;align-items:center}
+.site-title{font-size:1rem;margin:0}
+.site-tagline{margin:0;font-size:.85rem;color:var(--muted)}
+
+/* nav */
+.main-nav{display:flex;align-items:center;gap:12px}
+.menu{display:flex;gap:8px;list-style:none;margin:0;padding:0;align-items:center}
+.menu a{color:var(--surface);text-decoration:none;padding:.45rem .7rem;border-radius:8px;display:inline-block;background:transparent;color:var(--bg);background:transparent}
+.menu a:focus{outline:var(--focus-ring);outline-offset:3px}
+.menu a:hover{background:rgba(255,255,255,0.06)}
+.submenu{display:none;position:absolute;background:var(--surface);color:var(--text);border-radius:8px;padding:8px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.menu li{position:relative}
+.menu li:focus-within > .submenu, .menu li:hover > .submenu{display:block}
+
+/* hamburger */
+.hamburger{display:none;background:none;border:0;color:var(--bg);font-size:1.25rem;padding:.25rem;margin-right:.25rem}
+.nav-controls{display:flex;gap:8px;align-items:center}
+.nav-controls button{background:none;border:1px solid rgba(255,255,255,0.06);color:var(--bg);padding:.25rem .5rem;border-radius:6px;cursor:pointer}
+
+
+.app-root{min-height:60vh;}
+
+/* cards */
+.card-list{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)}
+.card{background:var(--surface);padding:var(--space-3);border-radius:var(--radius-md);box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:.6rem}
+.card h3{margin:.25rem 0}
+.card img{width:100%;height:auto;border-radius:6px;object-fit:cover}
+
+/* buttons */
+.btn{display:inline-block;padding:.5rem .9rem;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:focus{outline:var(--focus-ring);outline-offset:3px}
+
+/* form */
+form{display:grid;gap:.6rem}
+label{font-weight:600}
+input,textarea,select{padding:.6rem;border-radius:6px;border:1px solid #ccc}
+input:focus,textarea:focus,select:focus{outline:var(--focus-ring)}
+.input-invalid{border-color:#d32f2f}
+
+.form-message{font-weight:600;}
+
+
+#toast-container{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:.5rem;z-index:9999}
+.toast{padding:.6rem .9rem;border-radius:8px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+
+
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);padding:var(--space-3);background:transparent;color:var(--muted)}
+
+
+.visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+
+
+:focus{outline:var(--focus-ring);outline-offset:3px}
+
+
+@media (max-width: 1024px){ .card-list{grid-template-columns:repeat(2,1fr)} }
+@media (max-width: 640px){
+  .hamburger{display:block}
+  .menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--surface);padding:var(--space-2);z-index:50}
+  .menu.show{display:flex}
+  .card-list{grid-template-columns:1fr}
+  .nav-controls{display:flex}
+  .container{padding:var(--space-2)}
+}
+
+:root[data-contrast="high"] .menu a{color:var(--text)}
+:root[data-contrast="high"] .nav-controls button{border-color:var(--text);color:var(--text)}
